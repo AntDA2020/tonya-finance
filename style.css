@@ -2,130 +2,117 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
 }
 
 body {
   min-height: 100vh;
   background: radial-gradient(circle at top, #1e293b 0%, #020617 55%);
-  color: #fff;
-  padding: 18px;
+  color: white;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+  padding: 22px;
 }
 
 .app {
-  width:100%
+  width: 100%;
   max-width: 520px;
-  margin: 0;
+  margin: 0 auto;
 }
 
 .header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
   margin-bottom: 24px;
 }
 
-.title {
-  font-size: 28px;
+.header h1 {
+  font-size: 30px;
   font-weight: 800;
 }
 
-.subtitle {
+.header p {
   margin-top: 6px;
   color: #94a3b8;
   font-size: 14px;
 }
 
-.settings {
-  width: 48px;
-  height: 48px;
-  border-radius: 18px;
-  background: rgba(148, 163, 184, 0.12);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.balance-card,
-.mini-card,
-.action {
-  background: rgba(30, 41, 59, 0.92);
-  border: 1px solid rgba(148, 163, 184, 0.14);
-  box-shadow: 0 14px 32px rgba(0, 0, 0, 0.22);
-}
-
 .balance-card {
+  background: rgba(30, 41, 59, 0.95);
+  border: 1px solid rgba(148, 163, 184, 0.15);
   border-radius: 28px;
   padding: 26px;
   margin-bottom: 18px;
+  box-shadow: 0 22px 50px rgba(0, 0, 0, 0.35);
 }
 
-.label {
+.balance-card p {
   color: #94a3b8;
   font-size: 14px;
   margin-bottom: 10px;
 }
 
-.balance {
+.balance-card h2 {
   font-size: 44px;
   font-weight: 900;
 }
 
-.mini-cards,
-.grid {
+.summary-grid,
+.action-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 14px;
 }
 
-.mini-cards {
+.summary-grid {
   margin-bottom: 24px;
 }
 
-.mini-card {
+.summary-card {
+  background: rgba(30, 41, 59, 0.92);
+  border: 1px solid rgba(148, 163, 184, 0.14);
   border-radius: 22px;
   padding: 18px;
   min-height: 110px;
 }
 
-.mini-title {
+.summary-card span {
+  display: block;
   color: #cbd5e1;
   font-size: 14px;
   margin-bottom: 14px;
 }
 
-.income {
+.summary-card strong {
+  font-size: 24px;
+}
+
+.income-card strong {
   color: #86efac;
-  font-size: 24px;
-  font-weight: 800;
 }
 
-.expense {
+.expense-card strong {
   color: #fda4af;
-  font-size: 24px;
-  font-weight: 800;
 }
 
-.section-title {
+h3 {
   font-size: 18px;
-  font-weight: 750;
   margin-bottom: 14px;
 }
 
-.action {
+.action-grid button {
+  min-height: 150px;
   border: none;
-  min-height: 170px;
   border-radius: 26px;
   padding: 18px;
+  background: rgba(30, 41, 59, 0.92);
+  border: 1px solid rgba(148, 163, 184, 0.14);
   color: white;
   text-align: left;
+  box-shadow: 0 14px 32px rgba(0, 0, 0, 0.22);
 }
 
-.action:active {
+.action-grid button:active {
   transform: scale(0.98);
 }
 
-.icon {
+.action-grid span {
   width: 58px;
   height: 58px;
   border-radius: 22px;
@@ -137,18 +124,32 @@ body {
   margin-bottom: 18px;
 }
 
-.action-title {
+.action-grid b {
+  display: block;
   font-size: 18px;
-  font-weight: 800;
+  margin-bottom: 6px;
 }
 
-.action-subtitle {
-  margin-top: 6px;
-  font-size: 13px;
+.action-grid small {
   color: #94a3b8;
+  font-size: 13px;
 }
 
-.footer {
+.result {
+  margin-top: 24px;
+  background: rgba(15, 23, 42, 0.9);
+  border: 1px solid rgba(148, 163, 184, 0.16);
+  border-radius: 22px;
+  padding: 18px;
+  white-space: pre-line;
+  line-height: 1.5;
+}
+
+.hidden {
+  display: none;
+}
+
+footer {
   text-align: center;
   color: #475569;
   font-size: 12px;
