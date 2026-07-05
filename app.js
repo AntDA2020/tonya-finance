@@ -6,6 +6,12 @@ function formatMoney(value) {
   return Number(value).toLocaleString("ru-RU") + " ₽";
 }
 
+function showResult(text) {
+  const result = document.getElementById("result");
+  result.classList.remove("hidden");
+  result.innerText = text;
+}
+
 function loadDashboard() {
   fetch(API_URL + "?action=dashboard")
     .then(response => response.json())
@@ -13,11 +19,15 @@ function loadDashboard() {
       document.getElementById("balanceValue").innerText = formatMoney(data.balance);
       document.getElementById("incomeValue").innerText = formatMoney(data.income);
       document.getElementById("expenseValue").innerText = formatMoney(data.expenses);
+    })
+    .catch(() => {
+      showResult("Не удалось загрузить данные. Проверь Apps Script API.");
     });
 }
 
 function addIncome() {
   const amount = prompt("Введите сумму дохода:");
+
   if (!amount) return;
 
   fetch(API_URL, {
@@ -29,8 +39,11 @@ function addIncome() {
   })
     .then(response => response.json())
     .then(data => {
-      alert(data.message);
+      showResult(data.message);
       loadDashboard();
+    })
+    .catch(() => {
+      showResult("Ошибка при добавлении дохода.");
     });
 }
 
@@ -47,9 +60,11 @@ function addExpense() {
   ];
 
   const category = prompt("Введите категорию:\n\n" + categories.join("\n"));
+
   if (!category) return;
 
   const amount = prompt("Введите сумму расхода:");
+
   if (!amount) return;
 
   const comment = prompt("Комментарий? Можно оставить пустым:");
@@ -60,13 +75,16 @@ function addExpense() {
       action: "addExpense",
       category: category,
       amount: Number(amount),
-      comment: comment
+      comment: comment || ""
     })
   })
     .then(response => response.json())
     .then(data => {
-      alert(data.message);
+      showResult(data.message);
       loadDashboard();
+    })
+    .catch(() => {
+      showResult("Ошибка при добавлении расхода.");
     });
 }
 
@@ -84,7 +102,10 @@ function showStats() {
         text += category + ": " + formatMoney(data.categories[category]) + "\n";
       }
 
-      alert(text);
+      showResult(text);
+    })
+    .catch(() => {
+      showResult("Ошибка при загрузке статистики.");
     });
 }
 
@@ -93,7 +114,7 @@ function showHistory() {
     .then(response => response.json())
     .then(items => {
       if (!items.length) {
-        alert("История пока пустая");
+        showResult("История пока пустая");
         return;
       }
 
@@ -110,6 +131,9 @@ function showHistory() {
         text += "\n\n";
       });
 
-      alert(text);
+      showResult(text);
+    })
+    .catch(() => {
+      showResult("Ошибка при загрузке истории.");
     });
 }
