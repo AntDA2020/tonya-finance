@@ -1,1 +1,70 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Tonya Finance</title>
+  <link rel="stylesheet" href="style.css">
+</head>
 
+<body>
+  <div class="app">
+    <div class="header">
+      <div>
+        <div class="title">💰 Tonya Finance</div>
+        <div class="subtitle">Личный финансовый помощник</div>
+      </div>
+      <div class="settings">⚙️</div>
+    </div>
+
+    <div class="balance-card">
+      <div class="label">Текущий остаток</div>
+      <div class="balance" id="balanceValue">Загрузка...</div>
+    </div>
+
+    <div class="mini-cards">
+      <div class="mini-card">
+        <div class="mini-title">📈 Доходы</div>
+        <div class="income" id="incomeValue">...</div>
+      </div>
+
+      <div class="mini-card">
+        <div class="mini-title">📉 Расходы</div>
+        <div class="expense" id="expenseValue">...</div>
+      </div>
+    </div>
+
+    <div class="section-title">Быстрые действия</div>
+
+    <div class="grid">
+      <button class="action" onclick="addIncome()">
+        <div class="icon">➕</div>
+        <div class="action-title">Добавить доход</div>
+        <div class="action-subtitle">Записать новое поступление</div>
+      </button>
+
+      <button class="action" onclick="addExpense()">
+        <div class="icon">➖</div>
+        <div class="action-title">Добавить расход</div>
+        <div class="action-subtitle">Выбрать категорию и сумму</div>
+      </button>
+
+      <button class="action" onclick="showStats()">
+        <div class="icon">📊</div>
+        <div class="action-title">Статистика</div>
+        <div class="action-subtitle">Доходы, расходы и остаток</div>
+      </button>
+
+      <button class="action" onclick="showHistory()">
+        <div class="icon">🧾</div>
+        <div class="action-title">История</div>
+        <div class="action-subtitle">Последние операции</div>
+      </button>
+    </div>
+
+    <div class="footer">Tonya Finance Web v1.0</div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
