@@ -3,7 +3,6 @@
   margin: 0;
   padding: 0;
 }
-
 body {
   min-height: 100vh;
   background: radial-gradient(circle at top, #1e293b 0%, #020617 55%);
@@ -11,13 +10,11 @@ body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
   padding: 22px;
 }
-
 .app {
   width: 100%;
   max-width: 520px;
   margin: 0 auto;
 }
-
 .header {
   margin-bottom: 24px;
 }
